@@ -1,5 +1,3 @@
-export default function H6({text}) {
-    return(
-        <h6 className="text-sm">{text}</h6>
-    )
+export default function H6({ children }) {
+  return <h6 className="text-sm font-medium text-gray-600">{children}</h6>
 }

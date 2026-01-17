@@ -1,5 +1,3 @@
-export default function H5({text}) {
-    return(
-        <h5 className="text-lg font-bold py-2">{text}</h5>
-    )
+export default function H5({ children }) {
+  return <h5 className="text-base font-medium text-gray-700">{children}</h5>
 }

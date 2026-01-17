@@ -1,5 +1,3 @@
-export default function P({text, className}) {
-    return(
-        <p className={className}>{text}</p>
-    )
+export default function P({ children }) {
+  return <p className="text-gray-600 leading-relaxed">{children}</p>
 }

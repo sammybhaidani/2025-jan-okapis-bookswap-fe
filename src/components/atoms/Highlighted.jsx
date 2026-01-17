@@ -1,5 +1,3 @@
-export default function Highlighted({text}) {
-    return(
-        <p className="font-bold">{text}</p>
-    )
+export default function Highlighted({ children }) {
+  return <span className="text-indigo-600 font-medium">{children}</span>
 }
