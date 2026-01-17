@@ -1,9 +1,17 @@
 import { NavLink } from "react-router-dom";
-import H2 from "./H2";
 
-export default function NavLinks({link, text}){
-    return(
-        <NavLink to={link} className={({ isActive }) => isActive ? "text-green-900" : ""}>
-        <H2 text={text} /></NavLink>
-    )
+export default function NavLinks({ link, text }) {
+  return (
+    <NavLink
+      to={link}
+      className={({ isActive }) =>
+        `text-base font-medium transition-colors duration-200 hover:text-indigo-600 ${isActive
+          ? "text-indigo-600 border-b-2 border-indigo-600 pb-1"
+          : "text-gray-600"
+        }`
+      }
+    >
+      {text}
+    </NavLink>
+  );
 }
