@@ -1,12 +1,22 @@
-import P from "./atoms/P";
+export default function Rating({ rating }) {
+  const stars = [];
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
 
-export default function Rating({reviewNumber, rating}){
-    return (
-        <div className="flex flex-row       
-        items-center text-center mx-auto gap-1
-        md:text-left md:items-start">
-            <P text={`${reviewNumber} reviews`}/>
-            <P text={`- ${rating}/5 stars`}/>
-        </div>
-    )
+  for (let i = 0; i < 5; i++) {
+    if (i < fullStars) {
+      stars.push(<span key={i} className="text-yellow-400">★</span>);
+    } else if (i === fullStars && hasHalfStar) {
+      stars.push(<span key={i} className="text-yellow-400">½</span>);
+    } else {
+      stars.push(<span key={i} className="text-gray-300">★</span>);
+    }
+  }
+
+  return (
+    <div className="flex items-center gap-2">
+      <div className="flex text-lg sm:text-xl">{stars}</div>
+      <span className="text-xs sm:text-sm font-medium text-gray-700">({rating})</span>
+    </div>
+  );
 }
