@@ -5,7 +5,7 @@ export default function NavLinks({ link, text }) {
     <NavLink
       to={link}
       className={({ isActive }) =>
-        `text-base font-medium transition-colors duration-200 hover:text-indigo-600 ${isActive
+        `text-sm sm:text-base font-medium transition-colors duration-200 hover:text-indigo-600 ${isActive
           ? "text-indigo-600 border-b-2 border-indigo-600 pb-1"
           : "text-gray-600"
         }`
