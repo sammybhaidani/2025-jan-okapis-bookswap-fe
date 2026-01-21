@@ -1,17 +1,28 @@
-export default function GenreFilter ( {genres, handleGenreId}) {
+export default function GenreFilter({ genres, selectedGenre, handleGenreChange }) {
+  return (
+    <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+      <button
+        onClick={() => handleGenreChange("")}
+        className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${selectedGenre === ""
+          ? "bg-indigo-600 text-white shadow-md"
+          : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
+          }`}
+      >
+        All Genres
+      </button>
 
-    return (
-        <div className="flex flex-col items-center text-center mx-auto  gap-2 pt-2 p-5 px-10 md:flex-row md:text-left md:p-5 md:items-start">
-
-            <label htmlFor="genre">Genre:</label>
-            <select id="genre" aria-label="Select genre" className="border p-0.5 rounded w-45 md:w-50 lg:w-55 text-base" defaultValue="" onChange={(e) => handleGenreId(e.target.value)}>
-
-            <option value="">No genre selected</option>
-            {genres.map(genre => 
-                <option key={genre.id} value={genre.id}>{genre.name}</option>
-            )}
-
-            </select>
-        </div>
-        )
-    }
+      {genres.map((genre) => (
+        <button
+          key={genre.id}
+          onClick={() => handleGenreChange(genre.id)}
+          className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${selectedGenre === genre.id
+            ? "bg-indigo-600 text-white shadow-md"
+            : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
+            }`}
+        >
+          {genre.name}
+        </button>
+      ))}
+    </div>
+  );
+}
