@@ -5,15 +5,15 @@ import BookPage from "./pages/BookPage";
 import AddBook from "./pages/AddBook";
 
 export default function App() {
-  return(
+  return (
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home claimed="0"/>} />
-        <Route path="/claimed" element={<Home claimed="1" />} />
-        <Route path="/book/:id" element={<BookPage />} />
-        <Route path="/add-book" element={<AddBook />} />
+        <Route path="/" element={<Home claimed={0} />} />
+        <Route path="/claimed" element={<Home claimed={1} />} />
+        <Route path="/books/:id" element={<BookPage />} />
+        <Route path="/add" element={<AddBook />} />
       </Routes>
     </BrowserRouter>
-  ) 
+  )
 }
